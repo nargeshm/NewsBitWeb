@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PresentationHost</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <!-- for news bit add this code: -->
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/font/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- for management drop down add this code: -->
+    <style>
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+            .dropdown .dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+            .navbar a:hover, .dropdown:hover .dropbtn {
+                background-color: red;
+            }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="app" id="myTopnav">
+        <!-- header shamel nav bar ast/start -->
+        <header>
+            <nav class="header" style="margin-bottom:20px;margin-right:40px">
+                <!-- logo -->
+                <img class="header-logo" src="~/images/logo-black.png" alt="" />
+                <!-- menu -->
+                <ul class="header-menu" id="menu">
+                    <li class="header-menu-item">
+                        <a class="header-menu-item-link" asp-area="" asp-controller="Home" asp-action="Index">NEWSBit</a>
+                    </li>
+                    <li class="header-menu-item">
+                        <a class="header-menu-item-link" asp-controller="Home" asp-action="News" asp-route-Category="Economic">💰 Economic</a>
+                    </li>
+
+                    <li class="header-menu-item">
+                        <a class="header-menu-item-link" asp-controller="Home" asp-action="News" asp-route-Category="politics">📝 politics </a>
+                    </li>
+
+                    <li class="header-menu-item">
+                        <a class="header-menu-item-link" asp-controller="Home" asp-action="News" asp-route-Category="science">🧪 science </a>
+                    </li>
+                    <li class="header-menu-item">
+                        <a class="header-menu-item-link" asp-controller="Home" asp-action="News" asp-route-Category="business">👨🏻‍💼 business</a>
+                    </li>
+                    <li class="header-menu-item">
+                        <a class="header-menu-item-link" asp-controller="Home" asp-action="News" asp-route-Category="Sports">⚾ Sports</a>
+                    </li>
+                    <!--start new li -->
+                    <li class="header-menu-item">
+                        <a class="header-menu-item-link" href="#">
+                            👨🏻‍💼 management
+                            <i class="	fa fa-caret-down"></i>
+                        </a>
+                        <ul class="header-menu-item-dropdown">
+                            <li>
+                                <a asp-controller="News" asp-action="Index">📻News</a>
+                            </li>
+                            <li>
+                                <a asp-controller="Authors" asp-action="Index">📝Author </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Categories" asp-action="Index">📚Category </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Media" asp-action="Index">🎞Media</a>
+                            </li>
+                            <li>
+                                <a asp-controller="Users" asp-action="Index">🙍🏻‍♂Users</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="header-menu-item">
+                        <a class="header-menu-item-link" href="~/Home/Search">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </li>
+                </ul>
+                <section class="clear-fix"></section>
+            </nav>
+            <section class="clear-fix"></section>
+        </header>
+    </section>
+
+    <div class="container">
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+            <section id="go-up">
+                <a href="#" style="position:relative"><i class="fa fa-arrow-up text-yellow"> go up</i></a>
+            </section>
+
+        </main>
+    </div>
+    <!-- footer/start -->
+    <footer class="clear-fix">
+        <section class="footer">
+            <section class="cols">
+                <section class="footer-col1">
+                    <img src="~/images/logo-white.png" alt="" />
+                    <p class="text-white">
+                        NewsBit Digital is a collection of innovative and powerful news brands that deliver compelling,
+                        diverse and visually engaging stories on your platform of choice.
+                    </p>
+                    <p class="text-white">
+                        Copyright ©2020 All rights reserved |
+                        <a class="text-white" href="#">Colorlib</a>
+                    </p>
+                </section>
+                <section class="footer-col2">
+                    <h3 class="text-yellow">MOST POPULAR</h3>
+                    <a class="text-white" href="">Its Make or Break Time for Bitcoin</a>
+                    <p class="text-white">Jan 25, 2018</p>
+                    <a class="text-white" href="">Bitcoin's roller coster ride is not over</a>
+                    <p class="text-white">Jan 25, 2018</p>
+                </section>
+                <section class="footer-col3">
+                    <h3 class="text-yellow">MOST POPULAR</h3>
+                    <a class="text-white" href="">Its Make or Break Time for Bitcoin</a>
+                    <p class="text-white">Jan 25, 2018</p>
+                    <a class="text-white" href="">Bitcoin's roller coster ride is not over</a>
+                    <p class="text-white">Jan 25, 2018</p>
+                </section>
+                <section class="clear-fix"></section>
+            </section>
+            <hr class="hr" />
+
+            <section class="footer-menu clear-fix">
+                <ul class="footer-menu-ul">
+                    <li><a asp-controller="Home" asp-action="Terms">Terms & Conditions</a></li>
+                    <li><a asp-controller="Home" asp-action="Privacy">Privacy policy</a></li>
+                    <li><a asp-controller="Home" asp-action="Jobs">Jobs advertising</a></li>
+                    <li><a asp-controller="Home" asp-action="Contacts">Contact us</a></li>
+                </ul>
+            </section>
+            <section class="clear-fix"></section>
+        </section>
+    </footer>
+    <!-- footer/end -->
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/sticky.js"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

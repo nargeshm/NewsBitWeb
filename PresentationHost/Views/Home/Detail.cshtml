@@ -1,0 +1,155 @@
+﻿@model News
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/single-news.css">
+    <link rel="stylesheet" href="font/css/all.css" />
+    <title>single-news</title>
+</head>
+<section class="app">
+    <!-- header shamel nav bar ast/start -->
+    <section class="content">
+        <!-- container shamel main & side bar ast -->
+        <section class="container">
+            <main>
+
+                <!-- main news/start -->
+                <section class="main-news">
+                    <img class="recent-img"
+                         src="~/images/@Model.Medias[0].Path"
+                         alt=""  />
+                    <h2 style="position:center"> @Model.NewsTitle</h2><br /> <br />
+                    <h4 style="position:center"> @Model.NewsSummary</h4>
+                    <h2 class="article-title x">
+                        <a href="#">By @Model.Author.AuthorName and Rebecca Shabad<br /></a>
+
+                    </h2>
+
+                    <ul class="caption-info-bar">
+                        <li>
+                            <span class="text-muted">by </span><b><a href="#"> @ViewBag.Aoutor</a></b><span class="text-muted"> @Model.NewsReleasetime</span>
+                        </li>
+                        <li><i class="fa fa-bolt text-yellow"></i><b> 30,190</b></li>
+                        <li><i class="fa fa-comment text-yellow"></i><b> 30</b></li>
+                    </ul>
+                    <p class=" more-info">
+                        @Model.NewsText
+                    </p>
+
+                    <!-- Sub news/end -->
+                </section>
+            </main>
+            <!-- ==============================main news/end ======================================-->
+            <!-- side bar/start -->
+            <aside>
+                <section class="side-bar">
+                    <ul class="yellow-box">
+                        <li><b>1 BTC = $13,2323</b></li>
+                        <li><b>1 BCH = $13,2323</b></li>
+                        <li><b>1 ETH = $13,2323</b></li>
+                        <li><b>1 LTC = $13,2323</b></li>
+                        <li><b>1 DAS = $13,2323</b></li>
+                        <li><b>1 BCC = $13,2323</b></li>
+                    </ul>
+                    <!-- popular news/start -->
+                    <h1 class="title popular">POPULAR POSTS</h1>
+                    <section class="row-popular">
+                        <a asp-controller="Home" asp-action="Detail" asp-route-little="death">
+                            <img class="popular-img"
+                                 src="~/images/bee.jpg"
+                                 alt="" style="width:100px;height:100px" />
+                        </a>
+                        <section class="popular-text">
+                            <h3 class="article-title">
+                                <a asp-controller="Home" asp-action="Detail" asp-route-little="death" style="left:20px">
+                                    Scientists decry death by...@*,000 cuts for world’s insects*@
+                                </a>
+                            </h3>
+                            <h6>
+                                by <span class="text-black">Danile Palmer,</span> Jan 25,
+                                2021
+                            </h6>
+                        </section>
+                        <section class="clear-fix"></section>
+                    </section>
+
+                    <section class="row-popular">
+                        <a asp-controller="Home" asp-action="Detail" asp-route-little="paranoid">
+                            <img class="popular-img" src="~/images/paranoid.png" style="width:100px;height:100px" />
+                        </a>
+                        <section class="popular-text">
+                            <h3 class="article-title">
+                                <a asp-controller="Home" asp-action="Detail" asp-route-little="paranoid" style="position:relative;left: 15px">
+                                    I used to think my...
+                                    @*anxiety about taking*@
+                                    @*time off was paranoid.*@
+
+                                </a>
+                            </h3>
+                            <h6>
+                                by <span class="text-black">anna lance,</span> Jan 25,
+                                2021
+                            </h6>
+                            <section class="clear-fix"></section>
+                        </section>
+                        <section class="clear-fix"></section>
+                    </section>
+
+                    <section class="row-popular">
+                        <a asp-controller="Home" asp-action="Detail" asp-route-little="research">
+                            <img class="popular-img"
+                                 src="~/images/research .png"
+                                 alt="" style="width:100px;height:100px" />
+                        </a>
+                        <section class="popular-text">
+                            <h3 class="article-title">
+                                <a asp-controller="Home" asp-action="Detail" asp-route-little="research" style="position:relative;left: 15px">
+                                    I research what... @*actually
+                                        causes autism.*@
+                                </a>
+                            </h3>
+                            <h6>
+                                by <span class="text-black">monica Palmer,</span> may 8,
+                                2018
+                            </h6>
+                            <section class="clear-fix"></section>
+                        </section>
+                        <section class="clear-fix"></section>
+                    </section>
+
+                    <section class="row-popular">
+                        <a asp-controller="Home" asp-action="Detail" asp-route-little="vaccine">
+                            <img class="popular-img"
+                                 src="~/images/Health3.jpg"
+                                 alt="" style="width:100px;height:100px" />
+                        </a>
+                        <section class="popular-text">
+                            <h3 class="article-title">
+                                <a asp-controller="Home" asp-action="Detail" asp-route-little="vaccine" style="position:relative;left: 22px">
+                                    to get more vaccines...
+                                </a>
+                            </h3>
+                            <h6>
+                                by <span class="text-black">fibi flibag,</span> oct 19,
+                                2019
+                            </h6>
+                        </section>
+                        <section class="clear-fix"></section>
+                    </section>
+
+                    <!-- popular news/end -->
+
+                </section>
+            </aside>
+            <!-- side bar/end -->
+
+            <section class="clear-fix"></section>
+        </section>
+    </section>
+    <section class="clear-fix"></section>
+</section>

@@ -1,0 +1,179 @@
+﻿@model List<News>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/search.css">
+
+    <link rel="stylesheet" href="~/font/css/all.css">
+
+    <title>Search</title>
+    <style>
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        .close {
+            position: absolute;
+            right: 100px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: red;
+                cursor: pointer;
+            }
+
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!--close tab start-->
+    <section class="container modal" id="id01">
+
+        @*<a href="@Model.ReturnUrl">*@
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+              title="Close Modal">&times;</span>
+        @*</a>*@
+    </section>
+
+
+    <!--close tab end-->
+    <section>
+        <section class="logo">
+            <img src="~/images/logo-black.png" alt="">
+        </section>
+        <!--send serched string-->
+        <section class="form">
+            <form asp-action="Search">
+                <input class="search-box" oninput="SearchBar(this)" type="text" name="q" placeholder="Search newsBIT">
+                @*<input type="hidden" value="@Model.ReturnUrl" name="ReturnUrl" />*@
+                <i class="fa fa-search"></i>
+            </form>
+        </section>
+
+        <section class="hint-title">
+            <h4 class="section1-title">Categories</h4>
+            <h4 class="section2-title">NewsBit section</h4>
+        </section>
+
+
+        <section class="hints">
+
+            <section class="section1">
+                <ul>
+                    <li><a asp-action="SearchByTitle" asp-route-q="CORONAVIRUS">CORONAVIRUS</a></li>
+                    <li><a asp-controller="Home" asp-action="News" asp-route-Category="science">SCIENCE</a></li>
+                    <li><a asp-controller="Home" asp-action="News" asp-route-Category="politics">POLITICS</a></li>
+                    <li><a asp-action="SearchByTitle" asp-route-q="WORLD">WORLD</a></li>
+                    <li><a asp-action="SearchByTitle" asp-route-q="COVID-19">COVID-19</a></li>
+                    <li><a asp-action="SearchByTitle" asp-route-q="HEALTH">HEALTH</a></li>
+                    <li><a asp-action="SearchByTitle" asp-route-q="INVESTIGATIONS">INVESTIGATIONS</a></li>
+                    <li><a asp-action="SearchByTitle" asp-route-q="CULTURE MATTERS">CULTURE MATTERS</a></li>
+
+                </ul>
+                <!--Add link for this tags-->
+                <ul>
+                    <li><a asp-action="News" asp-route-Category="Sports">SPORTS</a></li>
+                    <li><a asp-action="News" asp-route-Category="business">BUSINESS</a></li>
+                    <li><a asp-action="SearchByTitle" asp-route-q="LOCAL">LOCAL</a></li>
+                    <li><a asp-action="SearchByTitle" asp-route-q="IRAN">IRAN NEWS</a></li>
+                    <li><a asp-action="SearchByTitle" asp-route-q="SHOPPING">SHOPPING</a></li>
+                    <li><a asp-action="News" asp-route-Category="tech">TECH & MEDIA</a></li>
+                    <li><a asp-action="News" asp-route-Category="PHOTOS">PHOTOS</a></li>
+                    <li><a asp-action="SearchByTitle" asp-route-q="WEATHER">WEATHER</a></li>
+                </ul>
+                <ul>
+                    <li><a asp-controller="Home" asp-action="News" asp-route-Category="Economic">Economic</a></li>
+                    <li><a href="">U.S. NEWS</a></li>
+                    <li><a href="">POLITICS</a></li>
+                    <li><a href="">WORLD</a></li>
+                    <li><a href="">LOCAL</a></li>
+                </ul>
+            </section>
+
+            <!--add link for this tags:-->
+            <section class="section2">
+                <ul>
+                    <li><a href="">TODAY</a></li>
+                    <li><a href="">MSNBC</a></li>
+                    <li><a href="">NIGHTLY NEWS</a></li>
+                    <li><a href="">MEET THE PRESS</a></li>
+                    <li><a href="">DATELINE</a></li>
+                    <li><a href="">NIGHTLY NEWS</a></li>
+                    <li><a href="">MEET THE PRESS</a></li>
+                    <li><a href="">DATELINE</a></li>
+                </ul>
+                <ul>
+                    <li><a href="">TODAY</a></li>
+                    <li><a href="">MSNBC</a></li>
+                    <li><a href="">NIGHTLY NEWS</a></li>
+                    <li><a href="">MEET THE PRESS</a></li>
+                    <li><a href="">DATELINE</a></li>
+                </ul>
+            </section>
+
+        </section>
+
+    </section>
+
+    <section id="ShowNews" class="app row-popular">
+
+        <ul>
+
+        </ul>
+        <hr />
+        <br />
+        <br />
+    </section>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+
+    <!--ajax for search bar: -->
+    <script type="text/javascript">
+        function SearchBar(q) {
+            var request = new XMLHttpRequest();
+            request.open('POST', '@Url.Action("Search","Home")' + '?q=' + q.value);
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 & request.status == 200) {
+                    document.getElementById("ShowNews").innerHTML = request.response;
+
+                }
+            }
+            request.send();
+
+        }
+
+
+    </script>
+
+</body>
+</html>

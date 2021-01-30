@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NB.Core.Contracts\NB.Core.Contracts.csproj" />
+    <ProjectReference Include="..\NB.Core.Entites\NB.Core.Entites.csproj" />
+    <ProjectReference Include="..\NB.Infrastruture.Sql\NB.Infrastruture.Sql.csproj" />
+  </ItemGroup>
+
+</Project>
